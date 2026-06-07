@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourSpace | Better Systems for Better Student Lives</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fdf8f6',
+                            100: '#f2e8e5',
+                            200: '#eaddd7',
+                            300: '#e0cec7',
+                            400: '#d2bab0',
+                            500: '#a38f85', // Warm, sophisticated neutral tone
+                            600: '#86766e',
+                            700: '#695c56',
+                            800: '#4c433e',
+                            900: '#322c28',
+                        },
+                        accent: {
+                            DEFAULT: '#fb923c', // Orange-400 for a pop of energetic color
+                            hover: '#f97316'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom subtle grain overlay for texture */
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(90deg, #4c433e, #fb923c);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-brand-50 relative">
+    <div class="fixed inset-0 bg-noise pointer-events-none z-50"></div>
+
+    <nav class="fixed w-full z-40 top-0 transition-all duration-300" id="navbar">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-bold tracking-tighter text-brand-900">
+                        YourSpace<span class="text-accent">.</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#mission" class="text-brand-700 hover:text-accent transition-colors font-medium">Our Mission</a>
+                    <a href="#systems" class="text-brand-700 hover:text-accent transition-colors font-medium">The Systems</a>
+                    <a href="https://instagram.com/yourspace.050" target="_blank" rel="noopener noreferrer" class="bg-brand-900 text-white px-5 py-2 rounded-full hover:bg-brand-800 transition-colors shadow-lg flex items-center gap-2">
+                        <i class="fa-brands fa-instagram"></i> Follow Us
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-900 hover:text-accent focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-50 shadow-xl absolute w-full border-t border-brand-200">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#mission" class="block px-3 py-3 text-base font-medium text-brand-800 hover:bg-brand-100 rounded-md">Our Mission</a>
+                <a href="#systems" class="block px-3 py-3 text-base font-medium text-brand-800 hover:bg-brand-100 rounded-md">The Systems</a>
+                <a href="https://instagram.com/yourspace.050" target="_blank" class="block px-3 py-3 text-base font-medium text-accent hover:bg-brand-100 rounded-md">
+                    <i class="fa-brands fa-instagram mr-2"></i> @yourspace.050
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute top-0 left-1/2 w-full -translate-x-1/2 h-full overflow-hidden -z-10">
+            <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[50%] rounded-full bg-accent opacity-10 blur-3xl mix-blend-multiply"></div>
+            <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[60%] rounded-full bg-brand-400 opacity-20 blur-3xl mix-blend-multiply"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-100 text-brand-800 text-sm font-semibold mb-6 border border-brand-200">
+                Redesigning Student Life
+            </span>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 text-brand-900 leading-tight">
+                Systems built for the <br class="hidden md:block" />
+                <span class="gradient-text">modern student.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl text-xl text-brand-700 mx-auto mb-10">
+                We design intuitive systems and workflows that eliminate daily friction, helping students focus on what actually matters: learning and living.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#systems" class="px-8 py-4 text-lg font-medium rounded-xl text-white bg-brand-900 hover:bg-brand-800 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
+                    Explore the Systems
+                </a>
+                <a href="https://instagram.com/yourspace.050" target="_blank" class="px-8 py-4 text-lg font-medium rounded-xl text-brand-900 bg-white border border-brand-200 hover:bg-brand-50 shadow-sm transition-all flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-instagram text-accent"></i> Join the Community
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="mission" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Students collaborating" class="rounded-2xl shadow-2xl object-cover h-[500px] w-full" onerror="this.src='https://placehold.co/800x500/eaddd7/4c433e?text=Students+Collaborating'">
+                </div>
+                <div>
+                    <h2 class="text-sm font-bold text-accent tracking-widest uppercase mb-3">The Problem</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-brand-900 mb-6">Student life is chaotic. It doesn't have to be.</h3>
+                    <div class="space-y-6 text-lg text-brand-700">
+                        <p>
+                            Between managing schedules, tracking assignments, coordinating group work, and trying to maintain mental well-being, the cognitive load on students is immense.
+                        </p>
+                        <p>
+                            At <strong class="text-brand-900">YourSpace</strong>, we believe that better systems lead to better lives. We observe the daily pain points of students and engineer elegant, actionable solutions to streamline them.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-10 grid grid-cols-2 gap-6">
+                        <div class="border-l-4 border-accent pl-4">
+                            <h4 class="text-3xl font-bold text-brand-900">10x</h4>
+                            <p class="text-sm text-brand-600 font-medium">Better organization</p>
+                        </div>
+                        <div class="border-l-4 border-brand-400 pl-4">
+                            <h4 class="text-3xl font-bold text-brand-900">-50%</h4>
+                            <p class="text-sm text-brand-600 font-medium">Less daily friction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="systems" class="py-24 bg-brand-50 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-sm font-bold text-accent tracking-widest uppercase mb-3">Our Approach</h2>
+                <h3 class="text-4xl font-bold text-brand-900 mb-4">Systems we build</h3>
+                <p class="text-xl text-brand-700">We tackle the most frustrating aspects of academic life through structured thinking and smart design.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow border border-brand-100 group">
+                    <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center text-accent text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-regular fa-calendar-check"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-900 mb-3">Time Architecture</h4>
+                    <p class="text-brand-600 leading-relaxed">
+                        We don't just make planners. We build automated routines and scheduling systems that adapt to your energy levels and course load.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow border border-brand-100 group">
+                    <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center text-accent text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-900 mb-3">Resource Centralization</h4>
+                    <p class="text-brand-600 leading-relaxed">
+                        Systems to organize notes, syllabi, and research materials into a single, searchable source of truth. No more lost documents.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow border border-brand-100 group">
+                    <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center text-accent text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-arrows-spin"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-900 mb-3">Frictionless Workflow</h4>
+                    <p class="text-brand-600 leading-relaxed">
+                        Step-by-step frameworks for tackling large essays, exam prep, and group projects without the overwhelming decision fatigue.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-brand-900 relative overflow-hidden">
+        <!-- Abstract background elements -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-accent opacity-20 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-brand-500 opacity-20 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Ready to upgrade your space?</h2>
+            <p class="text-xl text-brand-200 mb-10">Follow our journey and be the first to access our new systems as we release them.</p>
+            
+            <a href="https://instagram.com/yourspace.050" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-brand-900 font-bold text-lg hover:bg-brand-50 hover:scale-105 transition-all shadow-[0_0_40px_rgba(251,146,60,0.3)]">
+                <i class="fa-brands fa-instagram text-2xl text-accent"></i>
+                Follow @yourspace.050
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-white py-12 border-t border-brand-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="text-xl font-bold text-brand-900">YourSpace<span class="text-accent">.</span></span>
+                <p class="text-sm text-brand-500 mt-1">Creating systems for student success.</p>
+            </div>
+            <div class="flex space-x-6 text-brand-500">
+                <a href="https://instagram.com/yourspace.050" target="_blank" class="hover:text-accent transition-colors">
+                    <span class="sr-only">Instagram</span>
+                    <i class="fa-brands fa-instagram text-xl"></i>
+                </a>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-brand-50 text-center text-sm text-brand-400">
+            &copy; 2026 YourSpace Agency. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+                navbar.classList.remove('py-2');
+            } else {
+                navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+                navbar.classList.add('py-2');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = mobileMenuBtn.querySelector('i');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenuIcon.classList.remove('fa-xmark');
+                mobileMenuIcon.classList.add('fa-bars');
+            } else {
+                mobileMenuIcon.classList.remove('fa-bars');
+                mobileMenuIcon.classList.add('fa-xmark');
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuIcon.classList.remove('fa-xmark');
+                mobileMenuIcon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>
