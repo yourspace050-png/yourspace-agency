@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Student Journal | YourSpace Agency Publications</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            50: '#fdf8f6', 100: '#f2e8e5', 200: '#eaddd7',
+                            500: '#a38f85', 800: '#4c433e', 900: '#322c28',
+                        },
+                        accent: { DEFAULT: '#fb923c', hover: '#f97316' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-brand-50">
+
+    <!-- Navigation Header -->
+    <nav class="bg-white shadow-sm fixed w-full h-20 top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 h-full flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-brand-900">YourSpace<span class="text-accent">.</span></a>
+            <div class="flex space-x-6 items-center">
+                <a href="index.html" class="text-brand-700 hover:text-accent font-medium">Agency Profile</a>
+                <a href="tracker.html" class="text-brand-900 font-bold hover:text-accent bg-brand-100 px-4 py-2 rounded-full">Claim Free Tracker</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Publication Archive -->
+    <section class="pt-36 pb-24 max-w-6xl mx-auto px-4">
+        <div class="border-b border-brand-200 pb-8 text-center md:text-left">
+            <span class="text-sm font-bold text-accent tracking-widest uppercase mb-2 block">Thought Leadership</span>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-brand-900">The Student Journal</h1>
+            <p class="text-brand-600 mt-2 text-lg">Bite-sized workflows built by our internal engineering laboratory.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mt-12">
+            
+            <!-- ARTICLE START -->
+            <article class="bg-white rounded-3xl p-6 border border-brand-200 shadow-sm hover:shadow-xl transition-all relative flex flex-col justify-between group">
+                <div class="absolute -top-3 left-6 bg-brand-900 text-brand-100 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Methodology</div>
+                <div class="pt-4">
+                    <span class="text-xs font-medium text-brand-400 block mb-2">June 10, 2026 • 1 Min Read</span>
+                    <h2 class="text-xl font-extrabold text-brand-900 mb-3 group-hover:text-accent transition-colors">Mastering Focus via Pomodoro</h2>
+                    <p class="text-brand-600 text-sm leading-relaxed mb-6">
+                        Burnout thrives in unstructured study blocks. The Pomodoro technique offers simple time architecture: work with absolute focus for 25 minutes, then force a 5-minute restorative break. Repeat this cycle four times, then step away for a longer 30-minute rest. By breaking up tasks into hyper-focused windows, you protect your energy levels and prevent cognitive decision fatigue. Don't pull long hours; engineer them instead.
+                    </p>
+                </div>
+                <div class="border-t border-brand-100 pt-4 text-xs font-bold text-brand-500">By YourSpace Team</div>
+            </article>
+            <!-- ARTICLE END -->
+
+            <!-- [PASTE COPIED EXTRA BLOG ENTRIES HERE] -->
+
+        </div>
+    </section>
+
+    <footer class="bg-white py-8 text-center text-sm text-brand-400 border-t border-brand-100">
+        &copy; 2026 YourSpace Agency. All rights reserved.
+    </footer>
+</body>
+</html>
