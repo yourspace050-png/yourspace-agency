@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YourSpace | Better Systems for Better Student Lives</title>
+    <title>YourSpace | Free Minimalist Habit Tracker for Students</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <script>
         tailwind.config = {
@@ -21,14 +21,14 @@
                             200: '#eaddd7',
                             300: '#e0cec7',
                             400: '#d2bab0',
-                            500: '#a38f85', // Warm, sophisticated neutral tone
+                            500: '#a38f85', 
                             600: '#86766e',
                             700: '#695c56',
                             800: '#4c433e',
                             900: '#322c28',
                         },
                         accent: {
-                            DEFAULT: '#fb923c', // Orange-400 for a pop of energetic color
+                            DEFAULT: '#fb923c', 
                             hover: '#f97316'
                         }
                     }
@@ -37,22 +37,23 @@
         }
     </script>
     <style>
-        /* Custom subtle grain overlay for texture */
         .bg-noise {
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
         }
         .gradient-text {
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-image: linear-gradient(90deg, #4c433e, #fb923c);
+            background-image: linear-gradient(135deg, #4c433e, #fb923c);
         }
     </style>
 </head>
 <body class="font-sans antialiased text-gray-800 bg-brand-50 relative">
+    <!-- Subtle Grain Overlay from layout profile -->
     <div class="fixed inset-0 bg-noise pointer-events-none z-50"></div>
 
-    <nav class="fixed w-full z-40 top-0 transition-all duration-300" id="navbar">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 top-0 transition-all duration-300 py-2" id="navbar">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
@@ -61,10 +62,12 @@
                     </a>
                 </div>
                 <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#product" class="text-brand-900 font-semibold hover:text-accent transition-colors">Free Tracker</a>
                     <a href="#mission" class="text-brand-700 hover:text-accent transition-colors font-medium">Our Mission</a>
                     <a href="#systems" class="text-brand-700 hover:text-accent transition-colors font-medium">The Systems</a>
-                    <a href="https://instagram.com/yourspace.050" target="_blank" rel="noopener noreferrer" class="bg-brand-900 text-white px-5 py-2 rounded-full hover:bg-brand-800 transition-colors shadow-lg flex items-center gap-2">
-                        <i class="fa-brands fa-instagram"></i> Follow Us
+                    <a href="#blog" class="text-brand-700 hover:text-accent transition-colors font-medium">Insights</a>
+                    <a href="https://instagram.com/yourspace.050" target="_blank" rel="noopener noreferrer" class="bg-brand-900 text-white px-5 py-2 rounded-full hover:bg-brand-800 transition-colors shadow-lg flex items-center gap-2 font-medium">
+                        <i class="fa-brands fa-instagram"></i> @yourspace.050
                     </a>
                 </div>
                 <!-- Mobile menu button -->
@@ -78,51 +81,139 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-brand-50 shadow-xl absolute w-full border-t border-brand-200">
             <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#product" class="block px-3 py-3 text-base font-bold text-accent">Free Habit Tracker</a>
                 <a href="#mission" class="block px-3 py-3 text-base font-medium text-brand-800 hover:bg-brand-100 rounded-md">Our Mission</a>
                 <a href="#systems" class="block px-3 py-3 text-base font-medium text-brand-800 hover:bg-brand-100 rounded-md">The Systems</a>
-                <a href="https://instagram.com/yourspace.050" target="_blank" class="block px-3 py-3 text-base font-medium text-accent hover:bg-brand-100 rounded-md">
-                    <i class="fa-brands fa-instagram mr-2"></i> @yourspace.050
+                <a href="#blog" class="block px-3 py-3 text-base font-medium text-brand-800 hover:bg-brand-100 rounded-md">Insights</a>
+                <a href="https://instagram.com/yourspace.050" target="_blank" class="block px-3 py-3 text-base font-medium text-brand-900 hover:bg-brand-100 rounded-md">
+                    <i class="fa-brands fa-instagram mr-2 text-accent"></i> Follow Us
                 </a>
             </div>
         </div>
     </nav>
 
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <!-- HERO SECTION: Hook immediately with the flagship product -->
+    <section class="relative pt-32 pb-20 lg:pt-44 lg:pb-28 overflow-hidden">
         <div class="absolute top-0 left-1/2 w-full -translate-x-1/2 h-full overflow-hidden -z-10">
-            <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[50%] rounded-full bg-accent opacity-10 blur-3xl mix-blend-multiply"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[60%] rounded-full bg-brand-400 opacity-20 blur-3xl mix-blend-multiply"></div>
+            <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[50%] rounded-full bg-accent opacity-10 blur-3xl"></div>
+            <div class="absolute bottom-[0%] right-[-10%] w-[50%] h-[60%] rounded-full bg-brand-400 opacity-20 blur-3xl"></div>
         </div>
 
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
-            <span class="inline-block py-1 px-3 rounded-full bg-brand-100 text-brand-800 text-sm font-semibold mb-6 border border-brand-200">
-                Redesigning Student Life
-            </span>
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 text-brand-900 leading-tight">
-                Systems built for the <br class="hidden md:block" />
-                <span class="gradient-text">modern student.</span>
-            </h1>
-            <p class="mt-4 max-w-2xl text-xl text-brand-700 mx-auto mb-10">
-                We design intuitive systems and workflows that eliminate daily friction, helping students focus on what actually matters: learning and living.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#systems" class="px-8 py-4 text-lg font-medium rounded-xl text-white bg-brand-900 hover:bg-brand-800 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
-                    Explore the Systems
-                </a>
-                <a href="https://instagram.com/yourspace.050" target="_blank" class="px-8 py-4 text-lg font-medium rounded-xl text-brand-900 bg-white border border-brand-200 hover:bg-brand-50 shadow-sm transition-all flex items-center justify-center gap-2">
-                    <i class="fa-brands fa-instagram text-accent"></i> Join the Community
-                </a>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-block py-1 px-4 rounded-full bg-brand-100 text-brand-900 text-xs font-bold uppercase tracking-wider mb-6 border border-brand-200 shadow-sm">
+                    First Edition Product Release
+                </span>
+                <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 text-brand-900 leading-tight">
+                    Your habits determine your future. <br />
+                    <span class="gradient-text">Track them beautifully.</span>
+                </h1>
+                <p class="text-xl text-brand-700 mb-8 max-w-2xl mx-auto leading-relaxed">
+                    Stop letting academic chaos run your life. Claim our signature, ultra-minimalist <strong class="text-brand-900">Daily Habit Tracker</strong> for free and design a daily space engineered for success.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="#product" class="w-full sm:w-auto px-8 py-4 text-lg font-bold rounded-xl text-white bg-brand-900 hover:bg-brand-800 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 text-center">
+                        Download Free Tracker
+                    </a>
+                    <a href="https://instagram.com/yourspace.050" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 text-lg font-medium rounded-xl text-brand-900 bg-white border border-brand-200 hover:bg-brand-50 shadow-sm transition-all flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-instagram text-accent"></i> Join Our Community
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="mission" class="py-20 bg-white">
+    <!-- MAIN PRODUCT ACQUISITION ZONE (The High-Conversion Funnel) -->
+    <section id="product" class="py-16 bg-white border-t border-b border-brand-100 scroll-mt-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-brand-50 rounded-3xl border border-brand-200 p-8 md:p-12 shadow-sm grid md:grid-cols-12 gap-12 items-center relative overflow-hidden">
+                
+                <!-- Left Column: Visual Mockup matching Digital_product_mockup_template_202606091636.jpeg workspace vibes -->
+                <div class="md:col-span-5 order-2 md:order-1 flex justify-center relative">
+                    <div class="w-72 h-[420px] bg-white rounded-2xl shadow-xl p-6 border border-brand-200/80 flex flex-col justify-between transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <div>
+                            <div class="border-b border-brand-200 pb-3 mb-4">
+                                <span class="text-[10px] uppercase tracking-widest font-bold text-brand-400">System Core</span>
+                                <h4 class="text-lg font-bold text-brand-900 mt-0.5">Dally Habit Tracker</h4>
+                                <p class="text-[10px] text-accent font-medium italic">Your habits will determine your future!</p>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between text-xs text-brand-700 pb-2 border-b border-brand-100">
+                                    <span>Meditating</span> <i class="fa-solid fa-square-check text-accent text-sm"></i>
+                                </div>
+                                <div class="flex items-center justify-between text-xs text-brand-700 pb-2 border-b border-brand-100">
+                                    <span>Journaling</span> <i class="fa-solid fa-square-check text-accent text-sm"></i>
+                                </div>
+                                <div class="flex items-center justify-between text-xs text-brand-700 pb-2 border-b border-brand-100">
+                                    <span>Yoga Session</span> <i class="fa-regular fa-square text-brand-300 text-sm"></i>
+                                </div>
+                                <div class="flex items-center justify-between text-xs text-brand-700 pb-2 border-b border-brand-100">
+                                    <span>Budget Update</span> <i class="fa-solid fa-square-check text-accent text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center pt-2 border-t border-brand-100">
+                            <span class="text-[9px] uppercase tracking-wider text-brand-400 font-semibold">YourSpace System Design</span>
+                        </div>
+                    </div>
+                    <!-- Secondary device card layer simulating the tablet/phone workspace from the template photo -->
+                    <div class="w-48 h-64 bg-brand-100/70 backdrop-blur-sm rounded-xl absolute -bottom-4 -right-2 rotate-12 shadow-md -z-10 border border-brand-200"></div>
+                </div>
+
+                <!-- Right Column: High-Intent Copy & Action Triggers -->
+                <div class="md:col-span-7 order-1 md:order-2">
+                    <div class="flex items-center gap-2 text-accent font-bold text-sm uppercase tracking-wider mb-3">
+                        <i class="fa-solid fa-star text-xs"></i> 100% Free Lifetime Access
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900 mb-4 tracking-tight">
+                        Designed for the minimalist desktop. Optimized for execution.
+                    </h2>
+                    <p class="text-brand-700 text-lg mb-8 leading-relaxed">
+                        To claim your free tracker layout, all we ask is for you to join our growing ecosystem. Subscribe to our official updates for system launches, and become part of our design collective on Instagram. Simple, frictionless, and zero cost.
+                    </p>
+
+                    <!-- TWO-STEP CONVERSION STRATEGY BOX -->
+                    <div class="bg-white p-6 rounded-2xl border border-brand-200 shadow-sm mb-8 space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-accent/10 text-accent flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">1</div>
+                            <div>
+                                <h4 class="font-bold text-brand-900">Follow @yourspace.050 on Instagram</h4>
+                                <p class="text-sm text-brand-600">Be the first to see our upcoming launches and budget-friendly lifestyle updates.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 border-t border-brand-100 pt-4">
+                            <div class="w-8 h-8 rounded-full bg-accent/10 text-accent flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">2</div>
+                            <div>
+                                <h4 class="font-bold text-brand-900">Enter Your Details</h4>
+                                <p class="text-sm text-brand-600">Secure your digital file delivery directly through our verified form portal.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA CONVERSION BUTTON -->
+                    <div class="flex flex-col sm:flex-row gap-4 items-center">
+                        <a href="https://tally.so/r/VLNeBg" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center px-10 py-5 font-extrabold rounded-xl text-white bg-accent hover:bg-accent-hover shadow-lg shadow-accent/30 transition-all transform hover:-translate-y-0.5 text-lg flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-envelope-open-text"></i> Subscribe & Claim Free Tracker
+                        </a>
+                        <a href="https://instagram.com/yourspace.050" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center px-6 py-5 font-bold rounded-xl text-brand-900 bg-brand-100 hover:bg-brand-200 transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-instagram text-lg text-brand-700"></i> Open Instagram
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION SECTION (Untouched layout, reassigned flow) -->
+    <section id="mission" class="py-20 bg-white scroll-mt-20">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
                 <div class="mb-12 lg:mb-0">
                     <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Students collaborating" class="rounded-2xl shadow-2xl object-cover h-[500px] w-full" onerror="this.src='https://placehold.co/800x500/eaddd7/4c433e?text=Students+Collaborating'">
                 </div>
                 <div>
-                    <h2 class="text-sm font-bold text-accent tracking-widest uppercase mb-3">The Problem</h2>
+                    <h2 class="text-sm font-bold text-accent tracking-widest uppercase mb-3">Our Mission</h2>
                     <h3 class="text-3xl md:text-4xl font-bold text-brand-900 mb-6">Student life is chaotic. It doesn't have to be.</h3>
                     <div class="space-y-6 text-lg text-brand-700">
                         <p>
@@ -148,7 +239,8 @@
         </div>
     </section>
 
-    <section id="systems" class="py-24 bg-brand-50 relative">
+    <!-- SYSTEMS SECTION (Untouched design framework) -->
+    <section id="systems" class="py-24 bg-brand-50 relative scroll-mt-20">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-sm font-bold text-accent tracking-widest uppercase mb-3">Our Approach</h2>
@@ -157,7 +249,6 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
                 <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow border border-brand-100 group">
                     <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center text-accent text-2xl mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-regular fa-calendar-check"></i>
@@ -168,7 +259,6 @@
                     </p>
                 </div>
 
-                <!-- Feature 2 -->
                 <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow border border-brand-100 group">
                     <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center text-accent text-2xl mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-layer-group"></i>
@@ -179,7 +269,6 @@
                     </p>
                 </div>
 
-                <!-- Feature 3 -->
                 <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow border border-brand-100 group">
                     <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center text-accent text-2xl mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-arrows-spin"></i>
@@ -193,22 +282,54 @@
         </div>
     </section>
 
-    <section class="py-20 bg-brand-900 relative overflow-hidden">
-        <!-- Abstract background elements -->
-        <div class="absolute top-0 right-0 w-64 h-64 bg-accent opacity-20 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
-        <div class="absolute bottom-0 left-0 w-80 h-80 bg-brand-500 opacity-20 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
-        
-        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
-            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Ready to upgrade your space?</h2>
-            <p class="text-xl text-brand-200 mb-10">Follow our journey and be the first to access our new systems as we release them.</p>
-            
-            <a href="https://instagram.com/yourspace.050" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-brand-900 font-bold text-lg hover:bg-brand-50 hover:scale-105 transition-all shadow-[0_0_40px_rgba(251,146,60,0.3)]">
-                <i class="fa-brands fa-instagram text-2xl text-accent"></i>
-                Follow @yourspace.050
-            </a>
+    <!-- BLOG SECTION WITH UNIQUE CORRELATED SCHEME -->
+    <section id="blog" class="py-24 bg-white relative overflow-hidden scroll-mt-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-sm font-bold text-accent tracking-widest uppercase mb-3">Academic Insights</h2>
+                    <h3 class="text-4xl font-bold text-brand-900">The Student Journal</h3>
+                </div>
+                <p class="text-brand-600 mt-2 md:mt-0 max-w-sm">Bite-sized architectural insights engineered for low-stress learning routines.</p>
+            </div>
+
+            <!-- Grid for Blogs -->
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- BLOG POST START -->
+                <article class="bg-brand-50 rounded-3xl p-6 border border-brand-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between relative group">
+                    <div class="absolute -top-3 left-6 bg-brand-900 text-brand-100 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                        Methodology
+                    </div>
+                    <div class="pt-2">
+                        <span class="text-xs font-medium text-brand-400 block mb-2">June 10, 2026 • 1 Min Read</span>
+                        <h4 class="text-xl font-extrabold text-brand-900 mb-3 group-hover:text-accent transition-colors leading-snug">
+                            Mastering Focus via Pomodoro
+                        </h4>
+                        <p class="text-brand-600 text-sm leading-relaxed mb-6">
+                            Burnout thrives in unstructured study blocks. The Pomodoro technique offers simple time architecture: work with absolute focus for 25 minutes, then force a 5-minute restorative break. Repeat this cycle four times, then step away for a longer 30-minute rest. By breaking up tasks into hyper-focused windows, you protect your energy levels and prevent cognitive decision fatigue. Don't pull long hours; engineer them instead.
+                        </p>
+                    </div>
+                    <div class="border-t border-brand-200 pt-4 flex items-center justify-between text-xs font-bold text-brand-800 uppercase tracking-wider">
+                        <span>By YourSpace Team</span>
+                        <span class="text-accent group-hover:translate-x-1 transition-transform"><i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </article>
+                <!-- BLOG POST END -->
+
+                <!-- ==========================================================
+                     INDICATOR FOR SUBMITTING NEW BLOGS:
+                     To submit an additional blog post, copy the block from 
+                     "BLOG POST START" to "BLOG POST END" exactly, paste it 
+                     directly below this comment, and update your contents.
+                     ========================================================== -->
+                <!-- [PASTE NEW SUBMISSIONS DIRECTLY BENEATH THIS LINE] -->
+
+            </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="bg-white py-12 border-t border-brand-100">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
             <div class="mb-4 md:mb-0">
