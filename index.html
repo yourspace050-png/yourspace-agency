@@ -1,584 +1,468 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YourSpace | Systems Engineering & Operational Infrastructure</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Premium Google Fonts: Inter for structured UI, Playfair Display for editorial luxury -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif']
-                    },
-                    colors: {
-                        stoneblack: {
-                            50: '#fcfcfd',
-                            100: '#f5f5f7',
-                            200: '#e5e5eb',
-                            800: '#1c1c1e',
-                            900: '#0a0a0a',
-                            950: '#050505',
-                        },
-                        brass: {
-                            50: '#fbf9f4',
-                            100: '#f4ede0',
-                            200: '#e8dcbe',
-                            500: '#c5a880',
-                            600: '#b0926a',
-                            700: '#8e714a'
-                        }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <style>
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YourSpace | Automated Booking & Client Systems</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 
-        /* Equalizer Animation for ElevenLabs simulation */
-        @keyframes pulse-height {
-            0%, 100% { height: 12px; }
-            50% { height: 48px; }
-        }
-        .audio-bar {
-            animation: pulse-height 0.8s ease-in-out infinite;
-        }
-        
-        /* Ambient Noise Overlay */
-        .bg-noise {
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
-        }
-        
-        /* White Marble Organic Vein Pattern */
-        .bg-marble {
-            background-color: #fbfbfc;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 1000' preserveAspectRatio='none'%3E%3Cpath d='M-100,200 C300,250 500,100 800,250 C1100,400 1300,200 1700,300' fill='none' stroke='rgba(197,168,128,0.1)' stroke-width='2'/%3E%3Cpath d='M200,-100 C400,300 100,600 500,800 C900,1000 1200,900 1800,1100' fill='none' stroke='rgba(10,10,10,0.012)' stroke-width='1.5'/%3E%3Cpath d='M1000,100 C1100,400 900,700 1300,900' fill='none' stroke='rgba(197,168,128,0.06)' stroke-width='3'/%3E%3C/svg%3E");
-            background-attachment: fixed;
-            background-size: cover;
-        }
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        display: ['Cormorant Garamond', 'serif'],
+        sans: ['Manrope', 'sans-serif'],
+      },
+      colors: {
+        ink: { 950: '#040308', 900: '#080612', 800: '#0f0c21' },
+        royal: { 900: '#150d36', 700: '#382282', 500: '#5e3bd3' },
+        gold: { 200: '#f5e8c8', 300: '#e8cf9c', 400: '#d4af6a', 500: '#c39a4d' },
+        parchment: '#f8f6f0',
+        lav: { 300: '#c5bee0', 400: '#9d94c9', 500: '#73689e' }
+      }
+    }
+  }
+}
+</script>
 
-        /* Subtle Grid Pattern */
-        .bg-grid-pattern {
-            background-size: 60px 60px;
-            background-image: 
-                linear-gradient(to right, rgba(197, 168, 128, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(197, 168, 128, 0.05) 1px, transparent 1px);
-        }
+<style>
+  * { -webkit-tap-highlight-color: transparent; }
+  body { background: #040308; color: #f8f6f0; font-family: 'Manrope', sans-serif; overflow-x: hidden; }
 
-        /* Glassmorphism Marble Cards */
-        .marble-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(197, 168, 128, 0.25);
-            box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.04);
-        }
+  /* Smooth Custom Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #040308; }
+  ::-webkit-scrollbar-thumb { background: rgba(212, 175, 106, 0.3); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(212, 175, 106, 0.6); }
 
-        .dark-marble-card {
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(197, 168, 128, 0.15);
-            box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.3);
-        }
+  /* True Glassmorphism */
+  .glass-card {
+    background: rgba(15, 12, 33, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 106, 0.15);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-card:hover {
+    border-color: rgba(212, 175, 106, 0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 30px 60px rgba(94, 59, 211, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
 
-        /* Minimalist Scrollbar */
-        ::-webkit-scrollbar {
-            width: 5px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #fbfbfc;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #c5a880;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #b0926a;
-        }
-    </style>
+  /* Shimmering Gold Text Effect */
+  .gold-gradient {
+    background: linear-gradient(135deg, #f5e8c8 0%, #d4af6a 50%, #c39a4d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Luxury Button Glow & Shimmer */
+  .btn-luxury {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+  .btn-luxury::after {
+    content: ''; position: absolute; top: 0; left: -150%; width: 70%; height: 100%;
+    background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: skewX(-20deg);
+  }
+  .btn-luxury:hover::after { animation: shimmer 1s ease forwards; }
+  @keyframes shimmer { 100% { left: 150%; } }
+
+  /* Audio Equalizer for Voice Demo */
+  .audio-bar { animation: equalizer 0.8s ease-in-out infinite alternate; }
+  @keyframes equalizer { 0% { height: 6px; opacity: 0.3; } 100% { height: 28px; opacity: 1; } }
+
+  /* Scroll Reveal Dynamics */
+  .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+</style>
 </head>
-<body class="font-sans antialiased text-stoneblack-800 bg-marble relative overflow-x-hidden select-none">
+<body class="relative selection:bg-gold-400/20 selection:text-gold-200">
+
+<!-- AMBIENT BACKGROUND GLOWS -->
+<div class="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-royal-700/15 blur-[180px] pointer-events-none z-0"></div>
+<div class="fixed bottom-0 right-0 w-[600px] h-[600px] bg-gold-500/5 blur-[200px] pointer-events-none z-0"></div>
+
+<!-- FLOATING CLEAN HEADER -->
+<header class="fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl z-50">
+  <nav class="glass-card rounded-full px-6 py-3.5 flex items-center justify-between border border-gold-400/20">
     
-    <!-- Background Textures -->
-    <div class="fixed inset-0 bg-noise pointer-events-none z-50"></div>
-    <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
-    
-    <!-- Ambient Luminous Gradient -->
-    <div class="absolute top-0 left-0 w-full h-[1000px] bg-gradient-to-b from-brass-100/45 to-transparent pointer-events-none z-0"></div>
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-3 text-sm font-semibold tracking-[0.25em] uppercase">
+      <span class="w-8 h-8 rounded-full border border-gold-400/40 flex items-center justify-center text-gold-300 font-display italic text-base bg-royal-900/40">Y</span>
+      <span class="tracking-[0.2em] font-light">Your<span class="font-semibold text-gold-300">Space</span></span>
+    </a>
 
-    <nav class="fixed w-full z-40 top-0 bg-white/70 backdrop-blur-md border-b border-stone-200/40 h-20 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 h-full flex justify-between items-center">
-            <a href="#" class="text-xs tracking-[0.4em] font-extrabold text-stoneblack-900 uppercase">
-                YOURSPACE<span class="text-brass-500">.</span>
-            </a>
-            
-            <!-- Desktop Nav Links -->
-            <div class="hidden md:flex space-x-10 items-center text-[9px] tracking-[0.25em] font-bold uppercase text-stone-500">
-                <a href="#philosophy" class="hover:text-stoneblack-900 transition-colors duration-300">Philosophy</a>
-                <a href="#architecture" class="hover:text-stoneblack-900 transition-colors duration-300">Architecture</a>
-                <a href="#simulator" class="hover:text-stoneblack-900 transition-colors duration-300">Live Simulator</a>
-                <a href="#initiate" class="text-brass-700 hover:text-stoneblack-900 transition-colors duration-300">Initiate</a>
-            </div>
+    <!-- Navigation Links -->
+    <div class="hidden md:flex items-center gap-8 text-[11px] tracking-[0.2em] font-medium uppercase text-lav-300">
+      <a href="#services" class="hover:text-gold-300 transition-colors">Services</a>
+      <a href="#how-it-works" class="hover:text-gold-300 transition-colors">How It Works</a>
+      <a href="#demo" class="hover:text-gold-300 transition-colors">Live Demo</a>
+      <a href="#contact" class="hover:text-gold-300 transition-colors">Contact</a>
+    </div>
 
-            <div class="flex items-center gap-3">
-                <a href="https://instagram.com/yourspace.050" target="_blank" rel="noopener noreferrer" 
-                   class="px-5 py-2.5 border border-stone-200 hover:border-brass-500 bg-white hover:bg-brass-50 text-stoneblack-800 hover:text-brass-700 transition-all duration-500 flex items-center gap-2 text-[8px] tracking-[0.2em] uppercase font-bold shadow-sm">
-                    <i class="fa-brands fa-instagram text-xs"></i> @yourspace.050
-                </a>
-            </div>
+    <!-- CTA Button -->
+    <div class="flex items-center gap-4">
+      <a href="#contact" class="btn-luxury px-5 py-2 rounded-full bg-gradient-to-r from-gold-400 to-gold-500 text-ink-950 font-semibold text-[10px] tracking-[0.2em] uppercase shadow-lg shadow-gold-500/10 hover:shadow-gold-500/25">
+        Get Started
+      </a>
+      <button id="menu-toggle" aria-label="Toggle navigation menu" class="md:hidden text-gold-400 text-lg p-1">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+  </nav>
+</header>
+
+<!-- MOBILE DRAWER -->
+<div id="mobile-menu" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-300">
+  <div id="menu-backdrop" class="absolute inset-0 bg-ink-950/90 backdrop-blur-md"></div>
+  <div class="absolute right-0 top-0 h-full w-full max-w-xs bg-ink-900 border-l border-gold-400/20 p-8 flex flex-col justify-between transition-transform duration-300 translate-x-full" id="menu-panel">
+    <div class="space-y-8">
+      <div class="flex justify-between items-center pb-6 border-b border-gold-400/10">
+        <span class="text-xs tracking-[0.3em] font-semibold text-parchment uppercase">YourSpace</span>
+        <button id="menu-close" aria-label="Close navigation menu" class="text-gold-400 text-lg">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="flex flex-col gap-4 text-xs tracking-[0.2em] uppercase text-lav-300">
+        <a href="#services" class="mobile-link py-2 hover:text-gold-300">Services</a>
+        <a href="#how-it-works" class="mobile-link py-2 hover:text-gold-300">How It Works</a>
+        <a href="#demo" class="mobile-link py-2 hover:text-gold-300">Live Demo</a>
+        <a href="#contact" class="mobile-link py-2 hover:text-gold-300">Contact</a>
+      </div>
+    </div>
+    <div class="text-[10px] text-lav-500 tracking-widest uppercase">
+      © 2026 YourSpace Operations
+    </div>
+  </div>
+</div>
+
+<!-- HERO SECTION -->
+<section class="relative pt-44 pb-28 min-h-screen flex flex-col justify-center items-center text-center z-10 px-6">
+  <div class="max-w-4xl mx-auto flex flex-col items-center">
+
+    <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-gold-400/25 bg-royal-900/30 backdrop-blur-md mb-8">
+      <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse"></span>
+      <span class="text-[10px] font-semibold tracking-[0.25em] uppercase text-lav-300">24/7 Client Handling & Lead Systems</span>
+    </div>
+
+    <h1 class="text-4xl sm:text-6xl md:text-7xl font-display tracking-tight leading-[1.08] mb-8">
+      Never Miss a Client Call or Lead Again.<br/>
+      <span class="gold-gradient italic font-light">Automated 24/7 Response Systems.</span>
+    </h1>
+
+    <p class="max-w-2xl text-sm md:text-base text-lav-300 font-light leading-relaxed mb-12">
+      We build intelligent call-handling and instant follow-up systems for businesses that can't afford missed phone calls, slow text responses, or forgotten appointments.
+    </p>
+
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-5 w-full max-w-md">
+      <a href="#demo" class="btn-luxury px-8 py-4 rounded-full bg-gradient-to-r from-gold-400 via-gold-300 to-gold-500 text-ink-950 font-semibold text-xs tracking-[0.2em] uppercase shadow-xl shadow-gold-500/10 w-full sm:w-auto">
+        Test The System
+      </a>
+      <a href="#contact" class="btn-luxury px-8 py-4 rounded-full border border-gold-400/30 hover:border-gold-400/70 bg-ink-900/50 text-parchment font-semibold text-xs tracking-[0.2em] uppercase w-full sm:w-auto">
+        Book Consult
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section id="services" class="relative py-28 border-t border-gold-400/10 z-10">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="text-center max-w-2xl mx-auto mb-20 space-y-3 reveal">
+      <span class="text-[10px] font-semibold tracking-[0.3em] text-gold-400 uppercase">What We Do</span>
+      <h2 class="text-3xl md:text-5xl font-display font-medium">Three Core Operational Pillars</h2>
+      <p class="text-lav-400 text-sm font-light">Eliminate friction points between your leads and your calendar.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- Card 1 -->
+      <div class="glass-card p-8 rounded-2xl flex flex-col justify-between min-h-[360px] reveal">
+        <div class="space-y-6">
+          <div class="w-12 h-12 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-300 text-lg">
+            <i class="fa-solid fa-phone-volume"></i>
+          </div>
+          <h3 class="text-xl font-display text-parchment font-medium">24/7 AI Voice Answering</h3>
+          <p class="text-lav-400 text-xs font-light leading-relaxed">
+            Every phone call is answered immediately with a humanlike voice that schedules appointments, answers FAQs, and qualifies potential clients.
+          </p>
         </div>
-    </nav>
-
-    <section class="relative pt-44 pb-20 min-h-screen flex flex-col justify-center items-center text-center z-10 px-6">
-        <div class="max-w-5xl mx-auto">
-            
-            <!-- Status Pill -->
-            <div class="inline-flex items-center gap-3 px-4 py-1.5 border border-brass-500/30 bg-white/80 backdrop-blur-sm mb-10 animate-float shadow-sm">
-                <span class="w-1.5 h-1.5 rounded-full bg-brass-500 animate-pulse"></span>
-                <span class="text-[8px] font-bold tracking-[0.4em] uppercase text-stone-500">System Architecture Studio</span>
-            </div>
-
-            <!-- Structured Editorial Typography -->
-            <h1 class="text-4xl sm:text-6xl md:text-8xl font-light tracking-tight text-stoneblack-900 leading-[1.0] mb-8 uppercase">
-                AUTOMATING<br />
-                <span class="font-extrabold text-brass-500 tracking-wider">OPERATIONAL</span><br />
-                <span class="italic font-serif text-stone-700 font-normal">VELOCITY.</span>
-            </h1>
-
-            <p class="max-w-2xl text-xs md:text-sm text-stone-500 font-light tracking-widest uppercase leading-relaxed mx-auto mb-16">
-                We engineer automated infrastructure and bulletproof execution systems. We eliminate operational friction so your business compounds on autopilot.
-            </p>
-
-            <!-- Precision Action Buttons -->
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-5 w-full">
-                <a href="#simulator" class="group relative px-10 py-4 bg-stoneblack-900 text-white hover:bg-stoneblack-800 font-bold text-[9px] tracking-[0.3em] uppercase transition-all duration-300 w-full sm:w-auto shadow-md">
-                    Deploy Live Simulator
-                </a>
-                <a href="#initiate" class="px-10 py-4 border border-brass-500/30 bg-white/40 hover:bg-brass-50/50 text-stoneblack-900 font-bold text-[9px] tracking-[0.3em] uppercase transition-all duration-300 w-full sm:w-auto shadow-sm">
-                    Connect With Architecture
-                </a>
-            </div>
-
-            <!-- Downward Indicator -->
-            <div class="mt-24 text-brass-500/60 animate-bounce">
-                <i class="fa-solid fa-chevron-down text-sm"></i>
-            </div>
+        <div class="pt-6 border-t border-gold-400/10 text-[10px] tracking-[0.2em] text-gold-400 uppercase font-semibold">
+          Zero Ringing Out
         </div>
-    </section>
+      </div>
 
-    <section id="philosophy" class="relative py-32 border-t border-stone-200/50 bg-white/50 z-10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-12 gap-16 items-center">
-                
-                <!-- Left: Sharp Structural Framing -->
-                <div class="lg:col-span-5 relative group">
-                    <div class="border border-stone-200 p-2 rounded-none transition-colors duration-700 group-hover:border-brass-500/30 bg-white shadow-sm">
-                        <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1000&q=80" 
-                             alt="Structural Grid Structure" 
-                             class="grayscale opacity-60 group-hover:opacity-95 transition-all duration-1000 w-full h-[550px] object-cover rounded-none"
-                             onerror="this.src='https://placehold.co/800x1000/fafafb/8e714a?text=Operational+Ecosystem'">
-                    </div>
-                    <!-- Frame Accents -->
-                    <div class="absolute -top-3 -left-3 w-8 h-8 border-t border-l border-brass-500/40"></div>
-                    <div class="absolute -bottom-3 -right-3 w-8 h-8 border-b border-r border-brass-500/40"></div>
-                </div>
-
-                <!-- Right: Editorial Content -->
-                <div class="lg:col-span-7 space-y-10">
-                    <span class="text-[8px] font-bold tracking-[0.4em] text-brass-500 uppercase">01 / Structural Integrity</span>
-                    <h2 class="text-3xl md:text-5xl font-light tracking-tight text-stoneblack-900 uppercase leading-snug">
-                        CHAOS IS THE DEFAULT.<br />
-                        <span class="font-extrabold text-brass-500">WE CONSTRUCT STABILITY.</span>
-                    </h2>
-                    
-                    <div class="space-y-6 text-stone-600 font-light leading-relaxed text-sm">
-                        <p>
-                            Unorganized workflows act as silent leaks in your revenue and cognitive bandwidth. Every manual follow-up missed, every customer call left unanswered is compounding friction that limits your growth potential.
-                        </p>
-                        <p class="border-l-2 border-brass-500 pl-6 py-2 italic text-stoneblack-900 bg-brass-50/30">
-                            We don't offer generic templates or basic advice. We engineer custom, automated technical pipelines that map directly to your business's nervous system.
-                        </p>
-                        <p>
-                            By integrating custom-built databases with automated client communication channels, YourSpace transforms manual daily tasks into highly optimized, passive infrastructure.
-                        </p>
-                    </div>
-
-                    <!-- Highlight Metrics -->
-                    <div class="grid grid-cols-3 gap-6 pt-10 border-t border-stone-200 text-center lg:text-left">
-                        <div>
-                            <p class="text-2xl font-light text-stoneblack-900 font-mono">100%</p>
-                            <p class="text-[8px] uppercase tracking-[0.2em] text-stone-500 mt-2">Call Coverage</p>
-                        </div>
-                        <div>
-                            <p class="text-2xl font-light text-stoneblack-900 font-mono">&lt; 5m</p>
-                            <p class="text-[8px] uppercase tracking-[0.2em] text-stone-500 mt-2">Auto-Response</p>
-                        </div>
-                        <div>
-                            <p class="text-2xl font-light text-stoneblack-900 font-mono">0x</p>
-                            <p class="text-[8px] uppercase tracking-[0.2em] text-stone-500 mt-2">Human Friction</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+      <!-- Card 2 -->
+      <div class="glass-card p-8 rounded-2xl flex flex-col justify-between min-h-[360px] reveal">
+        <div class="space-y-6">
+          <div class="w-12 h-12 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-300 text-lg">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <h3 class="text-xl font-display text-parchment font-medium">Instant Multi-Channel Follow-Up</h3>
+          <p class="text-lav-400 text-xs font-light leading-relaxed">
+            The moment a client submits a form, email, or DM, an automated text and confirmation email is sent within seconds—locking in their interest.
+          </p>
         </div>
-    </section>
-
-    <section id="architecture" class="relative py-32 border-t border-stone-200/50 z-10">
-        <div class="max-w-7xl mx-auto px-6">
-            
-            <div class="text-center max-w-3xl mx-auto mb-24 space-y-4">
-                <span class="text-[8px] font-bold tracking-[0.4em] text-brass-500 uppercase">02 / System Integrations</span>
-                <h2 class="text-3xl md:text-4xl font-light tracking-tight text-stoneblack-900 uppercase">CORE AUTOMATION BLUEPRINTS</h2>
-                <p class="text-stone-500 text-xs tracking-wider uppercase font-light">The exact technological foundations we implement to secure your workflow scalability.</p>
-            </div>
-
-            <!-- Marble Grid Cards -->
-            <div class="grid md:grid-cols-3 gap-8">
-                
-                <!-- Architecture 01: ElevenLabs AI Agent -->
-                <div class="marble-card group p-10 rounded-none hover:border-brass-500/50 transition-all duration-300 relative flex flex-col justify-between min-h-[420px]">
-                    <div class="space-y-8">
-                        <div class="flex justify-between items-start">
-                            <div class="w-12 h-12 border border-stone-200 flex items-center justify-center text-stoneblack-900 text-base group-hover:border-brass-500 transition-all duration-500 bg-white">
-                                <i class="fa-solid fa-microphone-lines"></i>
-                            </div>
-                            <span class="text-2xl text-stone-200 font-extrabold group-hover:text-brass-500/40 transition-colors duration-500 font-mono">01</span>
-                        </div>
-                        <h3 class="text-md font-bold tracking-[0.15em] text-stoneblack-900 uppercase">ElevenLabs Voice Receptionist</h3>
-                        <p class="text-stone-600 font-light text-xs leading-relaxed tracking-wider">
-                            A highly intelligent 24/7 vocal interface. Routes inquiries, qualifies incoming leads, schedules appointments directly into your calendar, and completely eliminates missed calls.
-                        </p>
-                    </div>
-                    <div class="pt-6 border-t border-stone-100">
-                        <span class="text-[8px] uppercase tracking-[0.2em] text-brass-600 font-bold">Emotionally Intelligent Voice Engine</span>
-                    </div>
-                </div>
-
-                <!-- Architecture 02: Multi-Channel Follow-Up -->
-                <div class="marble-card group p-10 rounded-none hover:border-brass-500/50 transition-all duration-300 relative flex flex-col justify-between min-h-[420px]">
-                    <div class="space-y-8">
-                        <div class="flex justify-between items-start">
-                            <div class="w-12 h-12 border border-stone-200 flex items-center justify-center text-stoneblack-900 text-base group-hover:border-brass-500 transition-all duration-500 bg-white">
-                                <i class="fa-solid fa-arrows-spin"></i>
-                            </div>
-                            <span class="text-2xl text-stone-200 font-extrabold group-hover:text-brass-500/40 transition-colors duration-500 font-mono">02</span>
-                        </div>
-                        <h3 class="text-md font-bold tracking-[0.15em] text-stoneblack-900 uppercase">Automated Follow-Up Matrix</h3>
-                        <p class="text-stone-600 font-light text-xs leading-relaxed tracking-wider">
-                            Instant auto-response matrices deployed across Instagram DM, Email, and SMS. Captures leads within 5 minutes of calling or interacting with your funnel to guarantee high conversions.
-                        </p>
-                    </div>
-                    <div class="pt-6 border-t border-stone-100">
-                        <span class="text-[8px] uppercase tracking-[0.2em] text-brass-600 font-bold">Multi-Channel Lead Recovery</span>
-                    </div>
-                </div>
-
-                <!-- Architecture 03: Centralized Operations -->
-                <div class="marble-card group p-10 rounded-none hover:border-brass-500/50 transition-all duration-300 relative flex flex-col justify-between min-h-[420px]">
-                    <div class="space-y-8">
-                        <div class="flex justify-between items-start">
-                            <div class="w-12 h-12 border border-stone-200 flex items-center justify-center text-stoneblack-900 text-base group-hover:border-brass-500 transition-all duration-500 bg-white">
-                                <i class="fa-solid fa-database"></i>
-                            </div>
-                            <span class="text-2xl text-stone-200 font-extrabold group-hover:text-brass-500/40 transition-colors duration-500 font-mono">03</span>
-                        </div>
-                        <h3 class="text-md font-bold tracking-[0.15em] text-stoneblack-900 uppercase">Universal AI Hub Dashboard</h3>
-                        <p class="text-stone-600 font-light text-xs leading-relaxed tracking-wider">
-                            A single secure operational repository that connects all incoming inquiries, stores client details, tracks live ROI metrics, and maintains strict legal/regulatory compliance.
-                        </p>
-                    </div>
-                    <div class="pt-6 border-t border-stone-100">
-                        <span class="text-[8px] uppercase tracking-[0.2em] text-brass-600 font-bold">Secure Structured Data Layer</span>
-                    </div>
-                </div>
-
-            </div>
+        <div class="pt-6 border-t border-gold-400/10 text-[10px] tracking-[0.2em] text-gold-400 uppercase font-semibold">
+          Sub-Minute Response
         </div>
-    </section>
+      </div>
 
-    <section id="simulator" class="relative py-32 border-t border-stone-200/50 bg-stoneblack-950 text-white z-10 overflow-hidden">
+      <!-- Card 3 -->
+      <div class="glass-card p-8 rounded-2xl flex flex-col justify-between min-h-[360px] reveal">
+        <div class="space-y-6">
+          <div class="w-12 h-12 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-300 text-lg">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <h3 class="text-xl font-display text-parchment font-medium">Unified Client Dashboard</h3>
+          <p class="text-lav-400 text-xs font-light leading-relaxed">
+            All calls, text conversations, and booking records automatically sync into one central, clean dashboard. No scattered notes or missed leads.
+          </p>
+        </div>
+        <div class="pt-6 border-t border-gold-400/10 text-[10px] tracking-[0.2em] text-gold-400 uppercase font-semibold">
+          Single Database View
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO / SIMULATOR SECTION -->
+<section id="demo" class="relative py-28 border-t border-gold-400/10 z-10 bg-ink-950/40">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-3 reveal">
+      <span class="text-[10px] font-semibold tracking-[0.3em] text-gold-400 uppercase">Interactive Preview</span>
+      <h2 class="text-3xl md:text-5xl font-display font-medium">Test How It Operates Live</h2>
+      <p class="text-lav-400 text-sm font-light">Select your industry to see how an incoming inquiry is handled instantly.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+
+      <!-- Control Panel -->
+      <div class="lg:col-span-4 glass-card p-6 rounded-2xl space-y-5 reveal">
+        <h3 class="text-xs font-semibold tracking-[0.2em] text-gold-400 uppercase pb-3 border-b border-gold-400/10">Configure Test Scenario</h3>
+
+        <div class="space-y-2">
+          <label class="text-[10px] tracking-[0.2em] uppercase text-lav-300 font-semibold">Your Business Sector</label>
+          <select id="sim-industry" class="w-full bg-ink-950 border border-gold-400/20 p-3 rounded-lg text-xs font-medium text-parchment focus:outline-none focus:border-gold-400">
+            <option value="realestate">Real Estate & Property</option>
+            <option value="medical">Medical & Private Clinics</option>
+            <option value="contractor">High-End Construction & Contracting</option>
+            <option value="finance">Wealth Advisory & Legal</option>
+          </select>
+        </div>
+
+        <div class="space-y-2">
+          <label class="text-[10px] tracking-[0.2em] uppercase text-lav-300 font-semibold">Tone / Voice Style</label>
+          <select id="sim-voice" class="w-full bg-ink-950 border border-gold-400/20 p-3 rounded-lg text-xs font-medium text-parchment focus:outline-none focus:border-gold-400">
+            <option value="formal">Refined & Formal</option>
+            <option value="warm">Warm & Welcoming</option>
+            <option value="direct">Direct & Professional</option>
+          </select>
+        </div>
+
+        <button onclick="runSimulation()" class="btn-luxury w-full py-3.5 rounded-lg bg-gradient-to-r from-gold-400 to-gold-500 text-ink-950 font-semibold text-xs tracking-[0.2em] uppercase shadow-lg">
+          Run Demo Event
+        </button>
+      </div>
+
+      <!-- Live Terminal Output -->
+      <div class="lg:col-span-8 glass-card p-8 rounded-2xl min-h-[380px] flex flex-col justify-between relative reveal">
         
-        <!-- Subtle Glow Background for Dark Section -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brass-700/10 blur-[120px] rounded-full pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            
-            <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
-                <span class="text-[8px] font-bold tracking-[0.4em] text-brass-500 uppercase">03 / Operational Sandbox</span>
-                <h2 class="text-3xl md:text-4xl font-light tracking-tight uppercase">LIVE ECOSYSTEM SIMULATOR</h2>
-                <p class="text-stone-400 text-xs tracking-wider uppercase font-light">Witness our automated voice and multi-channel system process an inquiry in real time.</p>
-            </div>
-
-            <div class="grid lg:grid-cols-12 gap-12 items-start">
-                
-                <!-- Left: Simulator Controls -->
-                <div class="lg:col-span-4 space-y-6">
-                    <div class="dark-marble-card p-8 space-y-6">
-                        <h4 class="text-[10px] font-extrabold tracking-[0.25em] text-brass-500 uppercase pb-3 border-b border-white/10">Configure Environment</h4>
-                        
-                        <!-- Select Industry -->
-                        <div class="space-y-2">
-                            <label class="text-[8px] tracking-[0.2em] uppercase text-stone-400 font-bold">Target Industry</label>
-                            <select id="sim-industry" class="w-full bg-neutral-900 border border-white/15 p-3 text-xs tracking-wider uppercase font-bold text-white focus:outline-none focus:border-brass-500 rounded-none">
-                                <option value="realestate">Real Estate & Property</option>
-                                <option value="dental">Medical & Dental Clinic</option>
-                                <option value="contractor">Premium Contracting</option>
-                                <option value="finance">Asset Management / Finance</option>
-                            </select>
-                        </div>
-
-                        <!-- Select ElevenLabs Voice -->
-                        <div class="space-y-2">
-                            <label class="text-[8px] tracking-[0.2em] uppercase text-stone-400 font-bold">ElevenLabs Accent Profile</label>
-                            <select id="sim-voice" class="w-full bg-neutral-900 border border-white/15 p-3 text-xs tracking-wider uppercase font-bold text-white focus:outline-none focus:border-brass-500 rounded-none">
-                                <option value="british">Premium British Male (Corporate)</option>
-                                <option value="american">Warm American Female (Support)</option>
-                                <option value="australian">Direct Australian Male (Engineering)</option>
-                            </select>
-                        </div>
-
-                        <!-- Start Action -->
-                        <button onclick="runSimulation()" class="w-full py-4 bg-white text-stoneblack-950 hover:bg-brass-500 hover:text-white font-extrabold text-[9px] tracking-[0.3em] uppercase transition-all duration-500 shadow-lg">
-                            Initiate Simulation
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Right: Active Sandbox Console -->
-                <div class="lg:col-span-8 space-y-6">
-                    <div class="dark-marble-card p-8 min-h-[460px] flex flex-col justify-between relative">
-                        
-                        <!-- Top status line -->
-                        <div class="flex justify-between items-center pb-4 border-b border-white/10 text-[8px] tracking-[0.2em] uppercase font-bold text-stone-500">
-                            <span>System Code: v2.4-Active</span>
-                            <span id="system-status" class="flex items-center gap-2">
-                                <span class="w-1.5 h-1.5 rounded-full bg-stone-500"></span> STANDBY
-                            </span>
-                        </div>
-
-                        <!-- Interactive Terminal Area -->
-                        <div id="terminal-content" class="my-8 flex-grow flex flex-col justify-center items-center text-center space-y-6">
-                            <div class="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center text-stone-400 text-lg">
-                                <i class="fa-solid fa-terminal"></i>
-                            </div>
-                            <p class="text-[10px] uppercase tracking-[0.3em] text-stone-400 max-w-sm">Configure parameters on the left and trigger the simulation blueprint.</p>
-                        </div>
-
-                        <!-- Bottom Log Output -->
-                        <div class="pt-4 border-t border-white/10 text-[8px] font-mono tracking-wider text-stone-500 uppercase flex justify-between items-center">
-                            <span>Output Protocol: Secure SSL Sandbox</span>
-                            <span>Target: @yourspace.050</span>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
+        <div class="flex justify-between items-center pb-4 border-b border-gold-400/10 text-[10px] tracking-[0.2em] uppercase text-lav-400">
+          <span>Simulation Terminal</span>
+          <span id="system-status" class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-lav-500"></span> System Ready
+          </span>
         </div>
-    </section>
 
-    <section id="initiate" class="relative py-32 border-t border-stone-200/50 bg-white/50 z-10">
-        <div class="max-w-4xl mx-auto px-6">
-            
-            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-                <span class="text-[8px] font-bold tracking-[0.4em] text-brass-500 uppercase">04 / Operational Onboarding</span>
-                <h2 class="text-3xl md:text-4xl font-light tracking-tight text-stoneblack-900 uppercase">CONNECT WITH ARCHITECTURE</h2>
-                <p class="text-stone-500 text-xs tracking-wider uppercase font-light">Complete the questionnaire below. Our systems will analyze your operational bottlenecks immediately.</p>
-            </div>
-
-            <!-- Tally Form Embedded Portal inside Glassmorphic Marble Card -->
-            <div class="marble-card p-4 sm:p-8 rounded-none border border-brass-500/30 shadow-xl relative">
-                <!-- Frame Accents -->
-                <div class="absolute -top-3 -left-3 w-8 h-8 border-t border-l border-brass-500/40"></div>
-                <div class="absolute -bottom-3 -right-3 w-8 h-8 border-b border-r border-brass-500/40"></div>
-                
-                <!-- Tally IFrame Embed -->
-                <div class="w-full overflow-hidden bg-white/50">
-                    <iframe 
-                        src="https://tally.so/embed/kdgkVe?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-                        width="100%" 
-                        height="550" 
-                        frameborder="0" 
-                        marginheight="0" 
-                        marginwidth="0" 
-                        title="YourSpace Questionnaire"
-                        class="w-full">
-                    </iframe>
-                </div>
-            </div>
-
-            <!-- Direct Fallback / Alternative Connections -->
-            <div class="mt-12 text-center space-y-4">
-                <p class="text-[9px] tracking-[0.25em] uppercase text-stone-400 font-bold">Or connect with us directly via traditional protocols</p>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <a href="mailto:yourspace050@gmail.com" class="text-xs font-bold tracking-widest uppercase text-stoneblack-900 hover:text-brass-600 transition-colors flex items-center gap-2">
-                        <i class="fa-regular fa-envelope"></i> yourspace050@gmail.com
-                    </a>
-                    <span class="text-stone-300">|</span>
-                    <a href="https://instagram.com/yourspace.050" target="_blank" rel="noopener noreferrer" class="text-xs font-bold tracking-widest uppercase text-stoneblack-900 hover:text-brass-600 transition-colors flex items-center gap-2">
-                        <i class="fa-brands fa-instagram"></i> @yourspace.050
-                    </a>
-                </div>
-            </div>
-
+        <div id="terminal-content" class="my-8 flex flex-col justify-center items-center text-center space-y-4">
+          <div class="w-12 h-12 rounded-full border border-gold-400/20 flex items-center justify-center text-gold-400 text-lg bg-royal-900/30">
+            <i class="fa-solid fa-play"></i>
+          </div>
+          <p class="text-xs tracking-widest text-lav-400 uppercase font-light">Select options and click 'Run Demo Event'</p>
         </div>
-    </section>
 
-    <footer class="bg-stoneblack-950 text-white py-16 border-t border-white/10 relative z-10 text-center">
-        <div class="max-w-7xl mx-auto px-6 space-y-8">
-            <h5 class="text-xs tracking-[0.5em] font-extrabold text-white uppercase">YOURSPACE<span class="text-brass-500">.</span></h5>
-            
-            <p class="text-[9px] tracking-[0.3em] uppercase text-stone-500 max-w-lg mx-auto leading-relaxed">
-                ENGINEERING STRUCTURAL RUNTIME PROTOCOLS AND HIGH-INTEGRITY DIGITAL ARCHITECTURE.
-            </p>
-
-            <div class="flex justify-center space-x-8 text-xs font-bold tracking-[0.2em] uppercase text-stone-400">
-                <a href="mailto:yourspace050@gmail.com" class="hover:text-white transition-colors duration-300">yourspace050@gmail.com</a>
-                <a href="https://instagram.com/yourspace.050" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-300">Instagram</a>
-            </div>
-
-            <div class="pt-8 border-t border-white/5 text-[8px] tracking-[0.25em] uppercase text-stone-600">
-                &copy; 2026 YOURSPACE AGENCY. ALL ASSETS SECURITIZED.
-            </div>
+        <div class="pt-4 border-t border-gold-400/10 text-[9px] tracking-widest text-lav-500 uppercase flex justify-between">
+          <span>Real-time Response Engine</span>
+          <span>YourSpace Demo v2.6</span>
         </div>
-    </footer>
 
-    <script>
-        const payloads = {
-            realestate: {
-                scenario: "A prospective client calls inquiring about a listed architectural penthouse. They want to see the space tomorrow.",
-                response: "Hello, this is the automated reception deck for Prime Realty. I can confirm the penthouse on 5th Avenue is available for viewing. Let's get you booked in.",
-                email: "Subject: Penthouse Viewing Invitation\n\nDear Client,\nAs confirmed on our call, your viewing slot is scheduled for 14:00 tomorrow. Please review the private access brochure here: [link]\n\nSecurity System Admin",
-                dm: "Hey! Verified viewing booked for tomorrow at 14:00. Looking forward to showing you the space. Reach out here directly if you need directions."
-            },
-            dental: {
-                scenario: "An emergency patient calls suffering from severe root canal sensitivity. Needs scheduling today.",
-                response: "Thank you for reaching Crown Dental Care. I recognize you have severe sensitivity. I am reserving our urgent 16:30 slot for you today.",
-                email: "Subject: Urgent Consultation Confirmed\n\nDear Patient,\nYour emergency dental consultation is confirmed for 16:30 today. Please arrive 10 minutes prior to complete health declarations.\n\nOperational Admin",
-                dm: "Your emergency slot for today at 16:30 is secure! Tap here to sign your preliminary intake forms so we can expedite your entry: [link]"
-            },
-            contractor: {
-                scenario: "A custom builder calls requesting an urgent on-site structural estimate for a commercial structural project.",
-                response: "Welcome to Apex Contracting. I understand you need a commercial bid estimate. I am reserving tomorrow morning at 09:00 for our surveyor.",
-                email: "Subject: Estimator Site Visit Confirmed\n\nDear Partner,\nOur senior estimator is booked to visit your site tomorrow at 09:00. Please ensure structural drawings are available.\n\nApex Engineering",
-                dm: "Estimator site visit confirmed for 09:00 tomorrow. Have your structural files ready! Let's build."
-            },
-            finance: {
-                scenario: "An accredited high-net-worth investor calls requesting custom portfolio diversification guidance.",
-                response: "Welcome to Aurelia Asset Management. I'll get you connected with a senior partner. I am setting up your discovery call for Thursday at 11:00.",
-                email: "Subject: Asset Management Consultation\n\nDear Investor,\nYour private portfolio consulting session is confirmed for Thursday at 11:00. Enclosed is our asset allocation guide: [link]\n\nAurelia Partners",
-                dm: "Consultation booked for Thursday at 11:00. Looking forward to reviewing your financial roadmap."
-            }
-        };
+      </div>
 
-        function runSimulation() {
-            const industry = document.getElementById('sim-industry').value;
-            const voice = document.getElementById('sim-voice').value;
-            const terminal = document.getElementById('terminal-content');
-            const status = document.getElementById('system-status');
-            const data = payloads[industry];
+    </div>
+  </div>
+</section>
 
-            // Change status to active
-            status.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-brass-500 animate-pulse"></span> PROCESSING INBOUND SIGNAL`;
+<!-- CONTACT SECTION -->
+<section id="contact" class="relative py-28 border-t border-gold-400/10 z-10">
+  <div class="max-w-3xl mx-auto px-6 text-center space-y-12 reveal">
 
-            // Step 1: Simulated Call Inbound
-            terminal.innerHTML = `
-                <div class="space-y-6 w-full max-w-xl animate-pulse">
-                    <div class="text-[10px] tracking-[0.3em] text-brass-500 uppercase font-bold">Step 01: Connection Forwarded</div>
-                    <div class="text-xs font-mono text-stone-300 bg-neutral-900 border border-white/10 p-4">
-                        [INCOMING_SIGNAL] -> Origin: +27 (0) 82 050 ...<br>
-                        [FORWARD_METRIC] -> Forwarding to YourSpace ElevenLabs Node...
-                    </div>
-                    <p class="text-xs text-stone-400 font-light italic">"${data.scenario}"</p>
-                </div>
-            `;
+    <div class="space-y-3">
+      <span class="text-[10px] font-semibold tracking-[0.3em] text-gold-400 uppercase">Get Started</span>
+      <h2 class="text-3xl md:text-5xl font-display font-medium">Ready to Automate Your Client Workflow?</h2>
+      <p class="text-lav-400 text-sm font-light">Fill out the quick intake form below and we'll map out your custom system.</p>
+    </div>
 
-            // Step 2: ElevensLabs Processing Voice Loop
-            setTimeout(() => {
-                terminal.innerHTML = `
-                    <div class="space-y-6 w-full max-w-xl">
-                        <div class="text-[10px] tracking-[0.3em] text-brass-500 uppercase font-bold">Step 02: ElevenLabs Agent Speaking (${voice})</div>
-                        
-                        <!-- Pulse Visualizer -->
-                        <div class="flex items-center justify-center gap-1 h-12">
-                            <span class="w-1 bg-brass-500 rounded-full audio-bar" style="animation-delay: 0.1s"></span>
-                            <span class="w-1 bg-white rounded-full audio-bar" style="animation-delay: 0.3s"></span>
-                            <span class="w-1 bg-brass-500 rounded-full audio-bar" style="animation-delay: 0.5s"></span>
-                            <span class="w-1 bg-white rounded-full audio-bar" style="animation-delay: 0.2s"></span>
-                            <span class="w-1 bg-brass-500 rounded-full audio-bar" style="animation-delay: 0.4s"></span>
-                        </div>
+    <!-- Tally Form Container -->
+    <div class="glass-card p-4 sm:p-8 rounded-2xl">
+      <iframe
+        src="https://tally.so/embed/kdgkVe?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        width="100%"
+        height="500"
+        frameborder="0"
+        title="YourSpace Questionnaire"
+        class="w-full">
+      </iframe>
+    </div>
 
-                        <div class="text-xs text-white font-serif italic py-4 border-y border-white/10 leading-relaxed">
-                            "${data.response}"
-                        </div>
-                        <div class="text-[8px] tracking-[0.2em] uppercase text-stone-400">Processing real-time speech synthesis...</div>
-                    </div>
-                `;
-            }, 3000);
+    <div class="pt-6 flex flex-wrap justify-center gap-8 text-xs font-medium tracking-widest uppercase text-lav-300">
+      <a href="mailto:yourspace050@gmail.com" class="hover:text-gold-300 flex items-center gap-2">
+        <i class="fa-regular fa-envelope text-gold-400"></i> yourspace050@gmail.com
+      </a>
+      <a href="https://instagram.com/yourspace.050" target="_blank" rel="noopener noreferrer" class="hover:text-gold-300 flex items-center gap-2">
+        <i class="fa-brands fa-instagram text-gold-400"></i> @yourspace.050
+      </a>
+    </div>
 
-            // Step 3: Trigger Multi-Channel Follow-Up Log output
-            setTimeout(() => {
-                status.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> OPERATIONS SECURED`;
-                terminal.innerHTML = `
-                    <div class="space-y-6 w-full max-w-2xl text-left">
-                        <div class="text-center pb-2 border-b border-white/10">
-                            <span class="text-[10px] tracking-[0.3em] text-brass-500 uppercase font-bold">Step 03: Multi-Channel Follow-Up Fired</span>
-                        </div>
-                        
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <!-- Simulated Email payload -->
-                            <div class="bg-neutral-900 border border-white/10 p-4 space-y-2">
-                                <div class="text-[8px] tracking-[0.2em] uppercase text-stone-400 font-bold flex justify-between">
-                                    <span>System Email Engine</span>
-                                    <span class="text-green-500">SENT</span>
-                                </div>
-                                <pre class="text-[9px] font-mono text-stone-300 whitespace-pre-wrap leading-relaxed">${data.email}</pre>
-                            </div>
+  </div>
+</section>
 
-                            <!-- Simulated Social DM payload -->
-                            <div class="bg-neutral-900 border border-white/10 p-4 space-y-2">
-                                <div class="text-[8px] tracking-[0.2em] uppercase text-stone-400 font-bold flex justify-between">
-                                    <span>Instagram Core API (@yourspace.050)</span>
-                                    <span class="text-green-500">DELIVERED</span>
-                                </div>
-                                <p class="text-[9px] font-mono text-stone-300 leading-relaxed">${data.dm}</p>
-                            </div>
-                        </div>
+<!-- FOOTER -->
+<footer class="border-t border-gold-400/10 py-12 relative z-10 text-center text-xs text-lav-500 font-light tracking-widest uppercase">
+  <div class="max-w-6xl mx-auto px-6 space-y-4">
+    <div class="text-parchment font-semibold tracking-[0.3em]">YourSpace</div>
+    <p>© 2026 YourSpace Operations. All rights reserved.</p>
+  </div>
+</footer>
 
-                        <button onclick="resetSimulation()" class="w-full py-3 bg-white/10 border border-white/15 hover:bg-white hover:text-black font-extrabold text-[8px] tracking-[0.3em] uppercase transition-all duration-300 text-center">
-                            Reset Sandbox Environment
-                        </button>
-                    </div>
-                `;
-            }, 6500);
-        }
+<!-- SCRIPT ENGINE -->
+<script>
+const payloads = {
+  realestate: {
+    scenario: "A client calls to ask if a property listing is still available for a private tour tomorrow.",
+    response: "Hello! Yes, the property is currently available. I have opened up a private tour slot for you tomorrow at 14:00. Does that time work for you?",
+    followup: "SMS & Email Dispatched: Viewing booked for 14:00 tomorrow. Access brochure sent."
+  },
+  medical: {
+    scenario: "A patient calls with urgent pain looking for an emergency consultation this afternoon.",
+    response: "Thank you for calling. I understand this is urgent—I've reserved our 16:30 opening for you today with our specialist.",
+    followup: "SMS Dispatched: Appointment locked for 16:30 today. Digital medical form link attached."
+  },
+  contractor: {
+    scenario: "A general contractor calls needing a quote and site evaluation for a high-end renovation.",
+    response: "Thanks for reaching out! Our project lead can meet you on-site tomorrow morning at 09:00 to review the plans.",
+    followup: "SMS & Email Dispatched: Site visit scheduled for 09:00 tomorrow. Estimator notified."
+  },
+  finance: {
+    scenario: "An investor requests a private discovery call regarding estate planning.",
+    response: "Good afternoon. I've reserved a private consultation with our principal advisor for Thursday at 11:00.",
+    followup: "Email Dispatched: Executive briefing scheduled for Thursday at 11:00. Confidential intake enclosed."
+  }
+};
 
-        function resetSimulation() {
-            const status = document.getElementById('system-status');
-            status.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-stone-500"></span> STANDBY`;
-            document.getElementById('terminal-content').innerHTML = `
-                <div class="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center text-stone-400 text-lg">
-                    <i class="fa-solid fa-terminal"></i>
-                </div>
-                <p class="text-[10px] uppercase tracking-[0.3em] text-stone-400 max-w-sm">Configure parameters on the left and trigger the simulation blueprint.</p>
-            `;
-        }
-    </script>
+let activeTimeout;
+
+function runSimulation() {
+  clearTimeout(activeTimeout);
+  const ind = document.getElementById('sim-industry').value;
+  const status = document.getElementById('system-status');
+  const terminal = document.getElementById('terminal-content');
+  const data = payloads[ind];
+
+  // Stage 1
+  status.innerHTML = `<span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span> Receiving Call...`;
+  terminal.innerHTML = `
+    <div class="space-y-4 text-left max-w-lg w-full">
+      <div class="text-[10px] text-gold-400 uppercase tracking-widest font-semibold">1. Incoming Inquiry</div>
+      <div class="p-4 rounded-lg bg-ink-950 border border-gold-400/20 text-xs text-lav-200">
+        "${data.scenario}"
+      </div>
+    </div>
+  `;
+
+  // Stage 2
+  activeTimeout = setTimeout(() => {
+    status.innerHTML = `<span class="w-2 h-2 rounded-full bg-royal-500 animate-pulse"></span> Answering Call...`;
+    terminal.innerHTML += `
+      <div class="space-y-4 text-left max-w-lg w-full pt-4">
+        <div class="text-[10px] text-gold-400 uppercase tracking-widest font-semibold flex items-center justify-between">
+          <span>2. AI Voice Response</span>
+          <span class="flex items-center gap-1">
+            <span class="w-1 bg-gold-400 audio-bar"></span>
+            <span class="w-1 bg-parchment audio-bar" style="animation-delay:0.2s"></span>
+            <span class="w-1 bg-gold-400 audio-bar" style="animation-delay:0.4s"></span>
+          </span>
+        </div>
+        <div class="p-4 rounded-lg bg-royal-900/40 border border-gold-400/20 text-xs text-parchment italic">
+          "${data.response}"
+        </div>
+      </div>
+    `;
+
+    // Stage 3
+    activeTimeout = setTimeout(() => {
+      status.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-400"></span> Process Complete`;
+      terminal.innerHTML += `
+        <div class="space-y-4 text-left max-w-lg w-full pt-4">
+          <div class="text-[10px] text-gold-400 uppercase tracking-widest font-semibold">3. Instant Follow-Through</div>
+          <div class="p-4 rounded-lg bg-ink-950 border border-gold-400/20 text-xs text-lav-300 font-mono">
+            ${data.followup}
+          </div>
+        </div>
+      `;
+    }, 2000);
+
+  }, 1500);
+}
+
+// Mobile Menu Script
+const menuToggle = document.getElementById('menu-toggle');
+const menuClose = document.getElementById('menu-close');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuPanel = document.getElementById('menu-panel');
+const menuBackdrop = document.getElementById('menu-backdrop');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+
+function openMenu() {
+  mobileMenu.classList.remove('pointer-events-none', 'opacity-0');
+  mobileMenu.classList.add('opacity-100');
+  menuPanel.classList.remove('translate-x-full');
+}
+
+function closeMenu() {
+  mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+  mobileMenu.classList.remove('opacity-100');
+  menuPanel.classList.add('translate-x-full');
+}
+
+menuToggle.addEventListener('click', openMenu);
+menuClose.addEventListener('click', closeMenu);
+menuBackdrop.addEventListener('click', closeMenu);
+mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+// Intersection Observer for Scroll Animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('in');
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
